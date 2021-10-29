@@ -17,7 +17,14 @@ public class StartUI {
                 String name = scanner.nextLine();
                 Item item = new Item(name);
                 tracker.add(item);
-            } else if (selected == 6) {
+            } else if (selected == 1) {
+                System.out.println("=== Show all items ===");
+                Item[] items = tracker.findAll();
+                for (Item item : items) {
+                    System.out.println(item);
+                }
+            }
+            else if (selected == 6) {
                 run = false;
             }
         }
