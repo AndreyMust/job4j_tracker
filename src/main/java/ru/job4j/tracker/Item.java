@@ -8,10 +8,11 @@ public class Item {
     private LocalDateTime created = LocalDateTime.now();
 
     public Item() {
+
     }
 
-    public Item(int id) {
-        this.id = id;
+    public Item(String name) {
+        this.name = name;
     }
 
     public Item(int id, String name) {
