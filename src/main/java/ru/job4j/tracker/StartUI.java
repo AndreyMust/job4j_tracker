@@ -72,8 +72,7 @@ public class StartUI {
                 } else {
                     System.out.println("Заявки с именем: " + name + " не найдены.");
                 }
-            }
-            else if (selected == 6) {
+            } else if (selected == 6) {
                 run = false;
             }
         }
