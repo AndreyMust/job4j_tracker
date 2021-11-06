@@ -12,6 +12,7 @@ public class CreateNewItem implements UserAction {
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
         tracker.add(item);
+        System.out.println("Добавленная заявка: " + item);
         return true;
     }
 }
