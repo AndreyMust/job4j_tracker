@@ -18,5 +18,4 @@ public class ItemTest {
         Collections.sort(items);
         assertThat(items.get(0).getName(), is("CCC"));
     }
-
 }
