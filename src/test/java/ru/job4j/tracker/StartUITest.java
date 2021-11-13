@@ -1,5 +1,9 @@
 package ru.job4j.tracker;
 
+import java.lang.reflect.Array;
+import java.util.List;
+import java.util.Arrays;
+
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.Matchers.nullValue;
@@ -13,12 +17,12 @@ public class StartUITest {
         );
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
-        UserAction[] actions = {
+        List<UserAction> actions = Arrays.asList(
                 new CreateNewItem(out),
                 new ExitAction(out)
-        };
+        );
         new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findAll()[0].getName(), is("Item name"));
+        assertThat(tracker.findAll().get(0).getName(), is("Item name"));
     }
 
     @Test
@@ -30,10 +34,10 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[] {"0", replacedName, String.valueOf(item.getId()), "1"}
         );
-        UserAction[] actions = {
+        List<UserAction> actions = Arrays.asList(
                 new ReplaceAction(out),
                 new ExitAction(out)
-        };
+        );
         new StartUI(out).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()).getName(), is(replacedName));
     }
@@ -46,10 +50,10 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[] {"0", String.valueOf(item.getId()), "1"}
         );
-        UserAction[] actions = {
+        List<UserAction> actions = Arrays.asList(
                 new DeleteAction(out),
                 new ExitAction(out)
-        };
+        );
         new StartUI(out).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()), is(nullValue()));
     }
