@@ -8,7 +8,6 @@ public class PredicateCheckEven {
         System.out.println("a2");
         Predicate<Integer> isEvenNumber = x -> x % 2 == 0;
         Predicate<Integer> isPositiveNumber = x -> x > 0;
-        //return isEvenNumber.test(num);
         return check(isEvenNumber.and(isPositiveNumber), num);
     }
 
