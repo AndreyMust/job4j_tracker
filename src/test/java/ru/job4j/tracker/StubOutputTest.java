@@ -24,6 +24,7 @@ public class StubOutputTest {
         assertThat(out.toString(), is(
                 "Menu:" + System.lineSeparator()
                         + "0. Exit Program" + System.lineSeparator()
+                        + "=== Exit Program ===" + System.lineSeparator()
         ));
     }
 }
