@@ -17,6 +17,10 @@ public class StartUI {
         while (run) {
             showMenu(actions);
             int selected =  input.askInt("Select: ");
+            if (selected < 0 || selected >= actions.size()) {
+                out.println("Wrong input, you can select: 0 .. " + (actions.size() - 1));
+                continue;
+            }
             UserAction action = actions.get(selected);
             run = action.execute(input, tracker);
         }
